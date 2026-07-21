@@ -90,10 +90,6 @@ function Review() {
       const dataUrl = await toPng(cardRef.current, {
         pixelRatio: 3,
         cacheBust: false,
-        backgroundColor: showBackgroundColor ? 'var(--bg-card)' : 'rgba(0,0,0,0)',
-        style: {
-          backgroundColor: showBackgroundColor ? 'var(--bg-card)' : 'transparent',
-        },
       });
 
       const res = await fetch(dataUrl);
@@ -241,11 +237,8 @@ function Review() {
       </div>
 
       <div
-        className="review"
+        className={`review ${showBackgroundColor ? 'has-bg' : 'no-bg'}`}
         ref={cardRef}
-        style={{
-          backgroundColor: showBackgroundColor ? 'var(--bg-card)' : 'transparent'
-        }}
       >
         <div className="review-header">
           <img
@@ -308,11 +301,13 @@ function Review() {
 
           {user && (
             <div className="user-info">
-              <img
-                src={user?.avatarUrl}
-                alt={`${user?.username}'s profile picture`}
-                className="user-pfp"
-              />
+              <div className="user-pfp-wrapper">
+                <img
+                  src={user?.avatarUrl}
+                  alt={`${user?.username}'s profile picture`}
+                  className="user-pfp"
+                />
+              </div>
               <p className="user-name">{user?.username}</p>
             </div>
           )}

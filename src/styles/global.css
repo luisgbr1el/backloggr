@@ -330,10 +330,16 @@ h2 {
     align-items: center;
     gap: 12px;
     padding: 30px;
-    background-color: var(--bg-card);
-    /* box-shadow: var(--shadow); */
     box-sizing: border-box;
     overflow: hidden;
+}
+
+.review.has-bg {
+    background-color: #1a1b26;
+}
+
+.review.no-bg {
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .review-header {
@@ -500,22 +506,28 @@ svg {
     display: flex;
     align-items: center;
     gap: 6px;
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 4px 12px;
     border-radius: 20px;
     border: 1px solid var(--border);
-    isolation: isolate;
-    transform: translateZ(0);
 }
 
-.user-pfp {
+.user-pfp-wrapper {
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-pfp {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
 }
 
 .user-name {
