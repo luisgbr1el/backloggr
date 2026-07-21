@@ -1,3 +1,9 @@
 {
-    "framework": "vite"
+    "cleanUrls": true,
+    "rewrites": [
+        {
+            "source": "/((?!api/|src/|@|node_modules/|assets/|.*\\.[\\w]+$).*)",
+            "destination": "/index.html"
+        }
+    ]
 }

@@ -10,6 +10,6 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] })
   ],
   server: {
-    historyApiFallback: true,
-  },
+    historyApiFallback: true
+  }
 })
