@@ -1,0 +1,24 @@
+{
+    "home": {
+        "title_part1": "Genera ",
+        "title_highlight": "tarjetas",
+        "title_part2": " de tus últimas reseñas en Backloggd.",
+        "subtitle": "Ingresa tu usuario de Backloggd para crear una tarjeta lista para compartir.",
+        "placeholder": "Escribe tu @usuario...",
+        "button": "Generar"
+    },
+    "review": {
+        "settings_title": "Ajustes de tarjeta",
+        "setting_mastered": "Insignia de platinado",
+        "setting_date": "Fecha",
+        "setting_quote": "Cita de reseña",
+        "setting_background": "Fondo",
+        "share_button": "Compartir",
+        "generating_button": "Generando...",
+        "mastered_badge": "Platinado",
+        "error_title": "Usuario no encontrado",
+        "try_again": "Intentar de nuevo",
+        "info_clipboard": "Al hacer clic en Compartir, el enlace de tu reseña en Backloggd se copia automáticamente.",
+        "info_mobile": "Los dispositivos móviles muestran un avatar genérico para garantizar el renderizado."
+    }
+}

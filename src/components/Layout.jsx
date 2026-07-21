@@ -1,9 +1,19 @@
 import { Outlet, Link } from 'react-router-dom';
-import { TbBrandGithub, TbDeviceGamepad2 } from 'react-icons/tb';
+import { TbBrandGithub, TbDeviceGamepad2, TbWorld } from 'react-icons/tb';
 import { Analytics } from "@vercel/analytics/react";
+import { useTranslation } from 'react-i18next';
 import '../styles/global.css';
 
 function Layout() {
+    const { i18n } = useTranslation();
+
+    const handleLanguageChange = (e) => {
+        i18n.changeLanguage(e.target.value);
+    };
+
+    const currentLang = i18n.language ? i18n.language.split('-')[0] : 'en';
+    const activeLang = ['en', 'pt', 'es'].includes(currentLang) ? currentLang : 'en';
+
     return (
         <>
             <header className="header">
@@ -14,6 +24,20 @@ function Layout() {
                     </Link>
 
                     <nav className="nav-links">
+                        <div className="lang-select-wrapper">
+                            <TbWorld size={18} className="lang-icon" />
+                            <select
+                                className="lang-select"
+                                value={activeLang}
+                                onChange={handleLanguageChange}
+                                aria-label="Select language"
+                            >
+                                <option value="en">English</option>
+                                <option value="pt">Português</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+
                         <a
                             href="https://github.com/luisgbr1el/backloggr"
                             className="nav-item"

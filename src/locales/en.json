@@ -1,0 +1,24 @@
+{
+    "home": {
+        "title_part1": "Generate ",
+        "title_highlight": "cards",
+        "title_part2": " from your latest reviews on Backloggd.",
+        "subtitle": "Enter your Backloggd username to create a share-ready card.",
+        "placeholder": "Type your @username...",
+        "button": "Generate"
+    },
+    "review": {
+        "settings_title": "Card settings",
+        "setting_mastered": "Mastered badge",
+        "setting_date": "Date",
+        "setting_quote": "Review quote",
+        "setting_background": "Background",
+        "share_button": "Share",
+        "generating_button": "Generating...",
+        "mastered_badge": "Mastered",
+        "error_title": "User not found",
+        "try_again": "Try again",
+        "info_clipboard": "Clicking Share automatically copies your Backloggd review link to the clipboard.",
+        "info_mobile": "Mobile devices display a generic profile avatar to ensure reliable card rendering."
+    }
+}

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TbSearch, TbArrowRight } from 'react-icons/tb';
+import { useTranslation } from 'react-i18next';
 import '../styles/global.css';
 
 function Home() {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   function submitForm(e) {
     e.preventDefault();
@@ -18,10 +20,12 @@ function Home() {
     <div className="main home-container">
       <div className="hero">
         <h1 className="hero-title">
-          Generate <span className="highlight">cards</span> from your latest reviews on Backloggd.
+          {t('home.title_part1')}
+          <span className="highlight">{t('home.title_highlight')}</span>
+          {t('home.title_part2')}
         </h1>
         <p className="hero-subtitle">
-          Enter your Backloggd username to create a share-ready card.
+          {t('home.subtitle')}
         </p>
 
         <form className="search-form" onSubmit={submitForm}>
@@ -31,14 +35,14 @@ function Home() {
               name="username"
               type="text"
               className="search-input"
-              placeholder="Type your @username..."
+              placeholder={t('home.placeholder')}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               autoComplete="off"
             />
           </div>
           <button type="submit" className="search-button">
-            Generate <TbArrowRight size={18} />
+            {t('home.button')} <TbArrowRight size={18} />
           </button>
         </form>
       </div>

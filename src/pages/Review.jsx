@@ -14,15 +14,19 @@ import {
   TbEyeOff,
   TbAlertCircle,
   TbRefresh,
-  TbUser
+  TbUser,
+  TbInfoCircle,
+  TbCopy
 } from "react-icons/tb";
 import { toPng } from 'html-to-image';
+import { useTranslation } from 'react-i18next';
 import '../styles/global.css';
 
 function Review() {
   const { username } = useParams();
   const navigate = useNavigate();
   const cardRef = useRef(null);
+  const { t, i18n } = useTranslation();
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,6 +41,8 @@ function Review() {
   const [showDateTime, setShowDateTime] = useState(true);
   const [showGameReview, setShowGameReview] = useState(true);
   const [showBackgroundColor, setShowBackgroundColor] = useState(true);
+
+  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   const fetchData = async () => {
     try {
@@ -90,6 +96,15 @@ function Review() {
     try {
       setIsExporting(true);
 
+      const reviewUrl = review?.url || review?.game?.url;
+      if (reviewUrl && navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(reviewUrl);
+        } catch (clipErr) {
+          console.warn("Clipboard access denied/failed", clipErr);
+        }
+      }
+
       const dataUrl = await toPng(cardRef.current, {
         pixelRatio: 3,
         cacheBust: false,
@@ -101,9 +116,7 @@ function Review() {
       const fileName = `${username}-${review?.game?.name || 'review'}-card.png`;
       const file = new File([blob], fileName, { type: 'image/png' });
 
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-      if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) {
+      if (isMobileDevice && navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           files: [file],
           title: `${user?.username || username}'s Review Card`,
@@ -144,13 +157,13 @@ function Review() {
       <div className="main">
         <div className="error-card">
           <TbAlertCircle size={48} className="error-icon" />
-          <h2 className="error-title">User not found</h2>
+          <h2 className="error-title">{t('review.error_title')}</h2>
           <p className="error-message">{error}</p>
 
           <div className="error-actions">
             <button className="search-button" onClick={fetchData}>
               <TbRefresh size={18} />
-              Try Again
+              {t('review.try_again')}
             </button>
             <button className="icon-btn" onClick={() => navigate('/')} title="Back to Home">
               <TbArrowLeft size={20} />
@@ -165,6 +178,18 @@ function Review() {
 
   return (
     <div className="main">
+
+      <div className="card-info-box">
+        <div className="info-item">
+          <TbCopy size={16} className="info-icon" />
+          <span>{t('review.info_clipboard')}</span>
+        </div>
+        <div className="info-item">
+          <TbInfoCircle size={16} className="info-icon" />
+          <span>{t('review.info_mobile')}</span>
+        </div>
+      </div>
+
       <div className="action-bar">
         <button
           className="icon-btn"
@@ -187,14 +212,14 @@ function Review() {
 
             {isMenuOpen && (
               <div className="menu-dropdown">
-                <span className="menu-title">Card settings</span>
+                <span className="menu-title">{t('review.settings_title')}</span>
 
                 <button
                   className="menu-item"
                   onClick={() => setShowMastered(!showMastered)}
                 >
                   {showMastered ? <TbEye size={16} /> : <TbEyeOff size={16} />}
-                  <span>Mastered badge</span>
+                  <span>{t('review.setting_mastered')}</span>
                   {showMastered && <TbCheck size={16} className="check-icon" />}
                 </button>
 
@@ -203,7 +228,7 @@ function Review() {
                   onClick={() => setShowDateTime(!showDateTime)}
                 >
                   {showDateTime ? <TbEye size={16} /> : <TbEyeOff size={16} />}
-                  <span>Date</span>
+                  <span>{t('review.setting_date')}</span>
                   {showDateTime && <TbCheck size={16} className="check-icon" />}
                 </button>
 
@@ -212,7 +237,7 @@ function Review() {
                   onClick={() => setShowGameReview(!showGameReview)}
                 >
                   {showGameReview ? <TbEye size={16} /> : <TbEyeOff size={16} />}
-                  <span>Review quote</span>
+                  <span>{t('review.setting_quote')}</span>
                   {showGameReview && <TbCheck size={16} className="check-icon" />}
                 </button>
 
@@ -221,7 +246,7 @@ function Review() {
                   onClick={() => setShowBackgroundColor(!showBackgroundColor)}
                 >
                   {showBackgroundColor ? <TbEye size={16} /> : <TbEyeOff size={16} />}
-                  <span>Background</span>
+                  <span>{t('review.setting_background')}</span>
                   {showBackgroundColor && <TbCheck size={16} className="check-icon" />}
                 </button>
               </div>
@@ -234,7 +259,7 @@ function Review() {
             disabled={isExporting}
           >
             <TbShare size={18} />
-            {isExporting ? 'Generating...' : 'Share'}
+            {isExporting ? t('review.generating_button') : t('review.share_button')}
           </button>
         </div>
       </div>
@@ -281,7 +306,7 @@ function Review() {
           {(showMastered && review?.mastered === true) && (
             <p className="mastered">
               <TbTrophy size={18} />
-              <span>Mastered</span>
+              <span>{t('review.mastered_badge')}</span>
             </p>
           )}
 
@@ -289,7 +314,7 @@ function Review() {
             <p className="datetime">
               <TbCalendar size={18} />
               <time dateTime={review?.datetime}>
-                {review?.datetime ? new Date(review.datetime).toLocaleDateString() : ''}
+                {review?.datetime ? new Date(review.datetime).toLocaleDateString(i18n.language) : ''}
               </time>
             </p>
           )}
@@ -305,15 +330,15 @@ function Review() {
           {user && (
             <div className="user-info">
               <div className="user-pfp-wrapper">
-                {user?.avatarUrl && !hasAvatarError ? (
+                {isMobileDevice || !user?.avatarUrl || hasAvatarError ? (
+                  <TbUser size={14} className="user-pfp-placeholder" />
+                ) : (
                   <img
                     src={user.avatarUrl}
                     alt={`${user?.username}'s profile picture`}
                     className="user-pfp"
                     onError={() => setHasAvatarError(true)}
                   />
-                ) : (
-                  <TbUser size={14} className="user-pfp-placeholder" />
                 )}
               </div>
               <p className="user-name">{user?.username}</p>
@@ -325,6 +350,7 @@ function Review() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }

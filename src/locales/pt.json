@@ -1,0 +1,24 @@
+{
+    "home": {
+        "title_part1": "Gere ",
+        "title_highlight": "cards",
+        "title_part2": " das suas últimas reviews do Backloggd.",
+        "subtitle": "Digite seu nome de usuário do Backloggd para criar um card pronto para compartilhar.",
+        "placeholder": "Digite seu @usuário...",
+        "button": "Gerar"
+    },
+    "review": {
+        "settings_title": "Configurações do card",
+        "setting_mastered": "Selo de platinado",
+        "setting_date": "Data",
+        "setting_quote": "Trecho da review",
+        "setting_background": "Fundo",
+        "share_button": "Compartilhar",
+        "generating_button": "Gerando...",
+        "mastered_badge": "Platinado",
+        "error_title": "Usuário não encontrado",
+        "try_again": "Tentar novamente",
+        "info_clipboard": "Ao clicar em Compartilhar, o link da sua review no Backloggd é copiado automaticamente.",
+        "info_mobile": "Dispositivos móveis exibem um avatar genérico para garantir a renderização do card."
+    }
+}

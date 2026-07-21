@@ -649,3 +649,75 @@ svg {
     align-items: center;
     gap: 12px;
 }
+
+.card-info-box {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--text);
+    opacity: 0.75;
+    line-height: 1.4;
+}
+
+.info-item strong {
+    color: var(--text-h);
+    font-weight: 600;
+}
+
+.info-icon {
+    color: var(--accent-pink);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.lang-select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px 8px;
+    transition: border-color 0.2s;
+}
+
+.lang-select-wrapper:hover {
+    border-color: var(--text-h);
+}
+
+.lang-icon {
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.lang-select {
+    background: transparent;
+    border: none;
+    color: var(--text-h);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    padding-right: 2px;
+}
+
+.lang-select option {
+    background-color: var(--bg-card);
+    color: var(--text-h);
+}
