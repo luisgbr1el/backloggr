@@ -1,8 +1,7 @@
 {
-    "cleanUrls": true,
     "rewrites": [
         {
-            "source": "/((?!api/|src/|@|node_modules/|assets/|.*\\.[\\w]+$).*)",
+            "source": "/review/:path*",
             "destination": "/index.html"
         }
     ]
