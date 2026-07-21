@@ -8,7 +8,8 @@ function Layout() {
     const { i18n } = useTranslation();
 
     const handleLanguageChange = (e) => {
-        i18n.changeLanguage(e.target.value);
+        const newLang = e.target.value;
+        i18n.changeLanguage(newLang);
     };
 
     const currentLang = i18n.language ? i18n.language.split('-')[0] : 'en';
