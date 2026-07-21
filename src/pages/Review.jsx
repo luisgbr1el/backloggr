@@ -90,6 +90,10 @@ function Review() {
       const dataUrl = await toPng(cardRef.current, {
         pixelRatio: 3,
         cacheBust: false,
+        backgroundColor: showBackgroundColor ? 'var(--bg-card)' : 'rgba(0,0,0,0)',
+        style: {
+          backgroundColor: showBackgroundColor ? 'var(--bg-card)' : 'transparent',
+        },
       });
 
       const res = await fetch(dataUrl);
@@ -239,8 +243,9 @@ function Review() {
       <div
         className="review"
         ref={cardRef}
-        style={
-          showBackgroundColor === true ? { backgroundColor: 'var(--bg-card)' } : { backgroundColor: 'transparent' }}
+        style={{
+          backgroundColor: showBackgroundColor ? 'var(--bg-card)' : 'transparent'
+        }}
       >
         <div className="review-header">
           <img

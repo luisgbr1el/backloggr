@@ -504,6 +504,8 @@ svg {
     padding: 4px 12px;
     border-radius: 20px;
     border: 1px solid var(--border);
+    isolation: isolate;
+    transform: translateZ(0);
 }
 
 .user-pfp {
@@ -511,6 +513,9 @@ svg {
     height: 20px;
     border-radius: 50%;
     object-fit: cover;
+    display: block;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
 }
 
 .user-name {
