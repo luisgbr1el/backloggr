@@ -13,7 +13,8 @@ import {
   TbEye,
   TbEyeOff,
   TbAlertCircle,
-  TbRefresh
+  TbRefresh,
+  TbUser
 } from "react-icons/tb";
 import { toPng } from 'html-to-image';
 import '../styles/global.css';
@@ -30,6 +31,7 @@ function Review() {
 
   const [review, setReview] = useState(null);
   const [user, setUser] = useState(null);
+  const [hasAvatarError, setHasAvatarError] = useState(false);
 
   const [showMastered, setShowMastered] = useState(true);
   const [showDateTime, setShowDateTime] = useState(true);
@@ -40,6 +42,7 @@ function Review() {
     try {
       setIsLoading(true);
       setError(null);
+      setHasAvatarError(false);
 
       const [reviewRes, userRes] = await Promise.all([
         fetch(`/api/review?username=${username}`),
@@ -302,11 +305,16 @@ function Review() {
           {user && (
             <div className="user-info">
               <div className="user-pfp-wrapper">
-                <img
-                  src={user?.avatarUrl}
-                  alt={`${user?.username}'s profile picture`}
-                  className="user-pfp"
-                />
+                {user?.avatarUrl && !hasAvatarError ? (
+                  <img
+                    src={user.avatarUrl}
+                    alt={`${user?.username}'s profile picture`}
+                    className="user-pfp"
+                    onError={() => setHasAvatarError(true)}
+                  />
+                ) : (
+                  <TbUser size={14} className="user-pfp-placeholder" />
+                )}
               </div>
               <p className="user-name">{user?.username}</p>
             </div>
