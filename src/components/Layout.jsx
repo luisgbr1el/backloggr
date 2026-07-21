@@ -32,9 +32,9 @@ function Layout() {
                                 onChange={handleLanguageChange}
                                 aria-label="Select language"
                             >
-                                <option value="en">English</option>
-                                <option value="pt">Português</option>
-                                <option value="es">Español</option>
+                                <option value="en">EN</option>
+                                <option value="pt">PT</option>
+                                <option value="es">ES</option>
                             </select>
                         </div>
 
