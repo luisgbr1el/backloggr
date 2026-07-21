@@ -10,8 +10,6 @@ BackloggR lets gamers quickly export their recent game reviews, star ratings, an
 
 Enter your Backloggd username, customize which elements to display, and download or share the generated image directly.
 
----
-
 ## Features
 
 - **Automated fetching:** Pulls profile data and the most recent review using the Backloggd API wrapper.
@@ -20,18 +18,14 @@ Enter your Backloggd username, customize which elements to display, and download
 - **High-resolution export:** Renders $3\times$ pixel ratio PNG cards built with `html-to-image`.
 - **CORS-safe serverless architecture:** Converts avatars and game covers via backend serverless functions to prevent cross-origin canvas errors.
 
----
-
-## Tech Stack
+## Tech stack
 
 - **Frontend:** React, React Router, React Icons
 - **Image generation:** html-to-image
 - **Build tool:** Vite
 - **Deployment:** Vercel
 
----
-
-## Local Development
+## Local development
 
 > **Important:** This project uses Vercel Serverless Functions for API endpoints (`/api`). To run the full stack locally with backend support, you must use **Vercel CLI** instead of the standard Vite dev server alone.
 
