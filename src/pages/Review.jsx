@@ -34,6 +34,7 @@ function Review() {
   const [showMastered, setShowMastered] = useState(true);
   const [showDateTime, setShowDateTime] = useState(true);
   const [showGameReview, setShowGameReview] = useState(true);
+  const [showBackgroundColor, setShowBackgroundColor] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -211,6 +212,15 @@ function Review() {
                   <span>Review quote</span>
                   {showGameReview && <TbCheck size={16} className="check-icon" />}
                 </button>
+
+                <button
+                  className="menu-item"
+                  onClick={() => setShowBackgroundColor(!showBackgroundColor)}
+                >
+                  {showBackgroundColor ? <TbEye size={16} /> : <TbEyeOff size={16} />}
+                  <span>Background</span>
+                  {showBackgroundColor && <TbCheck size={16} className="check-icon" />}
+                </button>
               </div>
             )}
           </div>
@@ -226,7 +236,12 @@ function Review() {
         </div>
       </div>
 
-      <div className="review" ref={cardRef}>
+      <div
+        className="review"
+        ref={cardRef}
+        style={
+          showBackgroundColor === true ? { backgroundColor: 'var(--bg-card)' } : { backgroundColor: 'transparent' }}
+      >
         <div className="review-header">
           <img
             src={review?.game?.cover}

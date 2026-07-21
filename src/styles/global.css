@@ -329,10 +329,8 @@ h2 {
     justify-content: center;
     align-items: center;
     gap: 12px;
-    padding: 24px 20px;
-    border-radius: 20px;
+    padding: 25px;
     background-color: var(--bg-card);
-    border: 1px solid var(--border);
     box-shadow: var(--shadow);
     box-sizing: border-box;
     overflow: hidden;
