@@ -1,5 +1,6 @@
 import { Outlet, Link } from 'react-router-dom';
 import { TbBrandGithub, TbDeviceGamepad2 } from 'react-icons/tb';
+import { Analytics } from "@vercel/analytics/react";
 import '../styles/global.css';
 
 function Layout() {
@@ -28,6 +29,7 @@ function Layout() {
 
             <main>
                 <Outlet />
+                <Analytics />
             </main>
         </>
     );
