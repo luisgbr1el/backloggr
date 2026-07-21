@@ -49,9 +49,14 @@ Enter your Backloggd username, customize which elements to display, and download
     npm install
     ```
 
-3. Run the development server:
+3. Install Vercel CLI globally (if not already installed):
     ```bash
-    npm run dev
+    npm install -g vercel
+    ``` 
+
+4. Start the local development server with serverless functions support:
+    ```bash
+    vercel dev
     ```
     
 4. Open `http://localhost:3000` in your browser.
