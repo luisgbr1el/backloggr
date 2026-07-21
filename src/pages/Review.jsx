@@ -298,7 +298,7 @@ function Review() {
           )}
 
           <div className="card-footer-brand">
-            <span>backloggr.vercel.app</span>
+            <span>mybackloggr.vercel.app</span>
           </div>
         </div>
       </div>

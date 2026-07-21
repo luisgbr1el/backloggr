@@ -2,7 +2,7 @@
 
 A web tool to generate clean, share-ready image cards from your latest Backloggd game reviews.
 
-[Live demo](https://backloggr.vercel.app)
+[Live demo](https://mybackloggr.vercel.app)
 
 ## Overview
 
