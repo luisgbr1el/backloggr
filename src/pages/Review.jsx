@@ -21,6 +21,7 @@ import {
 import { toPng } from 'html-to-image';
 import { useTranslation } from 'react-i18next';
 import '../styles/global.css';
+import '../styles/Review.css';
 
 function Review() {
   const { username } = useParams();
@@ -65,6 +66,7 @@ function Review() {
 
       setReview(reviewData);
       setUser(userData);
+      localStorage.setItem('last_user', userData.username);
     } catch (err) {
       console.error("Fetch error:", err.message);
       setError(err.message || "Failed to load review. Please try again.");
@@ -137,6 +139,11 @@ function Review() {
     }
   };
 
+  const handleBackHome = () => {
+    localStorage.removeItem('last_user');
+    navigate('/');
+  }
+
   if (isLoading) {
     return (
       <div className="main">
@@ -193,7 +200,7 @@ function Review() {
       <div className="action-bar">
         <button
           className="icon-btn"
-          onClick={() => navigate('/')}
+          onClick={handleBackHome}
           title="Back to Home"
           aria-label="Back to Home"
         >

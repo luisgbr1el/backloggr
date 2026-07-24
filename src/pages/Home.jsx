@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TbSearch, TbArrowRight } from 'react-icons/tb';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +8,13 @@ function Home() {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const lastUser = localStorage.getItem('last_user');
+
+    if (lastUser && lastUser != '')
+      navigate(`/review/${lastUser.trim()}`);
+  }, []);
 
   function submitForm(e) {
     e.preventDefault();

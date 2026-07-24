@@ -1,0 +1,293 @@
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--accent-pink);
+    color: var(--text-button);
+    border: none;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    height: 38px;
+    padding: 0 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.download-btn:hover {
+    opacity: 0.9;
+}
+
+.download-btn:active {
+    transform: scale(0.97);
+}
+
+.download-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.review {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.review.has-bg {
+    background-color: var(--bg-review-has-bg);
+}
+
+.review.no-bg {
+    background-color: var(--bg-review-no-bg);
+}
+
+.review-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.game-cover {
+    width: 165px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.game-title {
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.25;
+    color: var(--text-h);
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+.review-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.game-rating {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    margin: 0;
+    line-height: 1;
+}
+
+.stars-bg {
+    display: flex;
+    gap: 3px;
+}
+
+.stars-bg svg {
+    color: var(--stars-inactive);
+}
+
+.stars-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.stars-inner {
+    display: flex;
+    gap: 3px;
+    width: max-content;
+}
+
+.stars-inner svg {
+    color: var(--accent-pink);
+}
+
+.mastered {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+    background: var(--gold-bg);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--gold-border);
+}
+
+.mastered svg {
+    color: var(--gold);
+}
+
+.datetime {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.datetime svg {
+    color: var(--text-muted);
+}
+
+.game-review-text {
+    position: relative;
+    width: 100%;
+    background: var(--bg-quote);
+    padding: 16px 22px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-top: 2px;
+    box-sizing: border-box;
+}
+
+.quote-content {
+    font-style: italic;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--text-quote);
+    text-align: center;
+    margin: 0;
+    display: block;
+}
+
+.quote-icon {
+    position: absolute;
+    color: var(--quote-icon);
+}
+
+.quote-open {
+    top: 10px;
+    left: 10px;
+}
+
+.quote-close {
+    bottom: 10px;
+    right: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--bg-hover);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.user-pfp-wrapper {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-pfp {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.user-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-h);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.skeleton-card {
+    pointer-events: none;
+}
+
+.skeleton-cover,
+.skeleton-title,
+.skeleton-stars,
+.skeleton-badge,
+.skeleton-quote,
+.skeleton-user {
+    background-color: var(--skeleton-bg);
+    border-radius: 8px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-cover {
+    width: 165px;
+    height: 220px;
+    border-radius: 12px;
+}
+
+.skeleton-title {
+    width: 70%;
+    height: 20px;
+}
+
+.skeleton-stars {
+    width: 110px;
+    height: 18px;
+}
+
+.skeleton-badge {
+    width: 90px;
+    height: 18px;
+    border-radius: 20px;
+}
+
+.skeleton-quote {
+    width: 100%;
+    height: 60px;
+    border-radius: 12px;
+}
+
+.skeleton-user {
+    width: 100px;
+    height: 24px;
+    border-radius: 20px;
+}
+
+.card-footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    color: var(--text);
+    opacity: 0.6;
+    letter-spacing: 0.3px;
+    margin-top: 4px;
+}
