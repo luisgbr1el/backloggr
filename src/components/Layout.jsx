@@ -56,6 +56,10 @@ function Layout() {
                 <Outlet />
                 <Analytics />
             </main>
+
+            <footer>
+                Made by <a href="https://github.com/luisgbr1el" target='_blank'>luisgbr1el</a>. Not associated with Backloggd.
+            </footer>
         </>
     );
 }

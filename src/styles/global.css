@@ -428,3 +428,16 @@ svg {
     background-color: var(--bg-card);
     color: var(--text-h);
 }
+
+footer {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--bg-review-has-bg);
+}
+
+footer a {
+    color: var(--text-h);
+    text-decoration: none;
+}
